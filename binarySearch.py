@@ -3,6 +3,8 @@
 import numpy as np
 import math
 
+
+#sorted data 
 arr = np.array([1,2,4,7,8,12,14,15,17,18,19,24,27,31,41,53,58,62,63,85,93,95])
 
 target = int(input("Enter the number for the target: "))
@@ -26,3 +28,5 @@ def binarySearch(arr):
         
 result = binarySearch(arr)
 print(f"Result is at {result}")
+
+#It is an example of divide an conquer technique
