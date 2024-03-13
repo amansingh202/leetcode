@@ -72,6 +72,26 @@ class LinkedList:
             itr = itr.next
             count += 1
 
+    def insert_at(self, index, data):
+        if index < 0 or index >= self.get_length():
+            raise Exception("Invalid index for insert at method")
+        
+        if index == 0:
+            self.insert_at_beginning(data)
+            return
+        
+        count = 0 
+        itr = self.head
+
+        while itr:
+            if count == index - 1:
+                node = Node(data, itr.next)
+                itr.next = node
+                break
+            itr = itr.next
+            count += 1
+        
+
 if __name__ == "__main__":
     ll = LinkedList()
     ll.insert_at_beginning(5)
