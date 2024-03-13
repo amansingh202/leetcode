@@ -102,4 +102,6 @@ if __name__ == "__main__":
     ll.insert_values(["banana", "mango", "grapes", "orange"])
     print(f"length of the linked list is : {ll.get_length()}")
     ll.remove_at(2)
+
+    ll.insert_at(0 ,"Strawberry")
     ll.print()
