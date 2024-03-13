@@ -44,6 +44,16 @@ class LinkedList:
         for data in data_list:
             self.insert_at_end(data)
 
+    def get_length(self):
+        count = 0
+        itr = self.head
+
+        while itr:
+            count += 1
+            itr = itr.next
+
+        return count
+
 if __name__ == "__main__":
     ll = LinkedList()
     ll.insert_at_beginning(5)
@@ -52,4 +62,5 @@ if __name__ == "__main__":
     ll.insert_at_end(71)
     ll.insert_at_end(23)
     ll.insert_values(["banana", "mango", "grapes", "orange"])
+    print(f"length of the linked list is : {ll.get_length()}")
     ll.print()
