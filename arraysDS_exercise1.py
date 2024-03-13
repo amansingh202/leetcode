@@ -19,3 +19,9 @@ expenses = [2200, 2350, 2600, 2130, 2190]
 
 diff_feb_jan = expenses[1] - expenses[0]
 print(f"Solution for 1 is {diff_feb_jan}")
+
+total_expense_quarter = 0
+for i in range(0,3):
+    total_expense_quarter += expenses[i]
+
+print(f"Total expenses for the 1st quarter is : {total_expense_quarter}")
