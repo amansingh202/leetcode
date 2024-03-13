@@ -107,6 +107,20 @@ class LinkedList:
     
         # If data_after is not found in the list
         raise ValueError("Data '{}' not found in the linked list".format(data_after))
+    
+
+    #remove by value in linked list
+    def remove_by_value(self, data):
+        if self.head is None:
+            return
+        
+        itr = self.head
+
+        while itr.next:
+            if itr.next.data == data:
+                itr.next = itr.next.next
+                return
+            itr = itr.next
 
         
 
@@ -123,6 +137,7 @@ if __name__ == "__main__":
 
     # ll.insert_at(0 ,"Strawberry")
     ll.insert_after_value("mango", "apple")
+    ll.remove_by_value("banana")
     ll.print()
 
 
