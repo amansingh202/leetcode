@@ -41,5 +41,5 @@ expenses.append(1980)
 print(expenses)
 
 #refund in the month of april
-expenses[3] = expenses[3] + 200
+expenses[3] = expenses[3] - 200
 print(f"Updated expenses: {expenses}")
