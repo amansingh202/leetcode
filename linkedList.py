@@ -90,6 +90,24 @@ class LinkedList:
                 break
             itr = itr.next
             count += 1
+
+    #insert after value in linked list
+    def insert_after_value(self, data_after, data_to_insert):
+
+        if self.head is None:
+            return
+        
+        itr = self.head
+        while itr:
+            if itr.data == data_after:
+                itr.next = Node(data_to_insert, itr.next)
+                return
+
+            itr = itr.next
+    
+        # If data_after is not found in the list
+        raise ValueError("Data '{}' not found in the linked list".format(data_after))
+
         
 
 if __name__ == "__main__":
@@ -100,8 +118,35 @@ if __name__ == "__main__":
     ll.insert_at_end(71)
     ll.insert_at_end(23)
     ll.insert_values(["banana", "mango", "grapes", "orange"])
-    print(f"length of the linked list is : {ll.get_length()}")
-    ll.remove_at(2)
+    # print(f"length of the linked list is : {ll.get_length()}")
+    # ll.remove_at(2)
 
-    ll.insert_at(0 ,"Strawberry")
+    # ll.insert_at(0 ,"Strawberry")
+    ll.insert_after_value("mango", "apple")
     ll.print()
+
+
+    '''In LinkedList class that we implemented in our tutorial add following two methods,
+def insert_after_value(self, data_after, data_to_insert):
+    # Search for first occurance of data_after value in linked list
+    # Now insert data_to_insert after data_after node
+
+def remove_by_value(self, data):
+    # Remove first node that contains data
+Now make following calls,
+
+    ll = LinkedList()
+    ll.insert_values(["banana","mango","grapes","orange"])
+    ll.print()
+    ll.insert_after_value("mango","apple") # insert apple after mango
+    ll.print()
+    ll.remove_by_value("orange") # remove orange from linked list
+    ll.print()
+    ll.remove_by_value("figs")
+    ll.print()
+    ll.remove_by_value("banana")
+    ll.remove_by_value("mango")
+    ll.remove_by_value("apple")
+    ll.remove_by_value("grapes")
+    ll.print()
+'''
