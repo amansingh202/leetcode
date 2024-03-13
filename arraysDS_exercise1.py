@@ -35,3 +35,11 @@ if month_count == 1:
     print("yes")
 else:
     print("No such month")
+
+#add june month expenses
+expenses.append(1980)
+print(expenses)
+
+#refund in the month of april
+expenses[3] = expenses[3] + 200
+print(f"Updated expenses: {expenses}")
