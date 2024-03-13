@@ -25,3 +25,13 @@ for i in range(0,3):
     total_expense_quarter += expenses[i]
 
 print(f"Total expenses for the 1st quarter is : {total_expense_quarter}")
+
+month_count = 0
+for i in range(0, len(expenses)):
+    if (expenses[i] == 2000):
+        month_count += 1
+    
+if month_count == 1:
+    print("yes")
+else:
+    print("No such month")
