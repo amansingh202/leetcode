@@ -39,6 +39,11 @@ class LinkedList:
         itr.next = Node(data, None)
 
 
+    def insert_values(self, data_list):
+        self.head = None
+        for data in data_list:
+            self.insert_at_end(data)
+
 if __name__ == "__main__":
     ll = LinkedList()
     ll.insert_at_beginning(5)
@@ -46,4 +51,5 @@ if __name__ == "__main__":
     ll.insert_at_end(45)
     ll.insert_at_end(71)
     ll.insert_at_end(23)
+    ll.insert_values(["banana", "mango", "grapes", "orange"])
     ll.print()
