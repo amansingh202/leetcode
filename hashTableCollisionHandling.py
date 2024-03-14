@@ -42,7 +42,17 @@ class HashTable:
 
     def __getitem__(self, key):
         h = self.get_hash(key)
-        return self.arr[h]
+        
+        for element in self.arr[h]:
+            if element[0] == key:
+                return element[1]
+            
+    def __delitem__ (self, key):
+        h = self.get_hash(key)
+
+        for index, element in enumerate(self.arr[h]):
+            if element[0] == key:
+                del self.arr[h][index]
     
 
 t = HashTable()
@@ -61,3 +71,8 @@ t['march 17'] = 459
 print(t['march 6'])
 
 #to overcome make changes in the setitem method and the arr
+print(t.arr)
+print(t['march 17'])
+
+del t['march 17']
+print(t.arr)
