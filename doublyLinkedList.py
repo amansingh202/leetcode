@@ -112,7 +112,14 @@ class DoublyLinkedList:
             itr = itr.next
 
 
+    def print_forward(self):
+        itr = self.head
+        llstr = ''
+        while itr:
+            llstr += str(itr.data) + "\n"
+            itr = itr.next
 
+        print(llstr)
 
 if __name__ == "__main__":
     ll = DoublyLinkedList()
@@ -126,5 +133,6 @@ if __name__ == "__main__":
     ll.insert_values(["Papaya","Mango","orange","Peach"])
     print(f"Length of the linked list is : {ll.get_length()}")
     ll.insert_after_value("Mango","banana")
-    ll.remove_by_value("orange")
+    # ll.remove_by_value("orange")
+    ll.print_forward()
     ll.print()
