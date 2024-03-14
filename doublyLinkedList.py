@@ -96,6 +96,22 @@ class DoublyLinkedList:
 
             itr = itr.next
 
+    def remove_by_value(self, data_to_remove):
+        if self.head is None:
+            return
+        
+        itr = self.head
+
+        while itr.next:
+            if itr.next.data == data_to_remove:
+                next_node = itr.next.next
+                itr.next = itr.next.next
+                next_node.prev = itr
+                return
+            
+            itr = itr.next
+
+
 
 
 if __name__ == "__main__":
@@ -107,7 +123,8 @@ if __name__ == "__main__":
     ll.insert_at_end(413)
     ll.insert_at_end(20)
     ll.insert_at_end(324)
-    ll.insert_values(["Papaya","Mango","orange","Peech"])
+    ll.insert_values(["Papaya","Mango","orange","Peach"])
     print(f"Length of the linked list is : {ll.get_length()}")
     ll.insert_after_value("Mango","banana")
+    ll.remove_by_value("orange")
     ll.print()
