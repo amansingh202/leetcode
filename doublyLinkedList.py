@@ -50,11 +50,12 @@ class DoublyLinkedList:
     def insert_at_end(self,data):
         new_node = Node(data)
         if self.head is None:
-            print("Empty linked list")
+            self.head = new_node
+            return
 
         last_node = self.head
 
-        while last_node.next:
+        while last_node.next is not None:
             last_node = last_node.next
 
         last_node.next = new_node
@@ -64,6 +65,17 @@ class DoublyLinkedList:
         self.head = None
         for data in data_list:
             self.insert_at_end(data)
+
+    def get_length(self):
+        count = 0
+        itr = self.head
+
+        while itr:
+            count += 1
+            itr = itr.next
+
+        return count
+            
 
 
 if __name__ == "__main__":
@@ -76,4 +88,5 @@ if __name__ == "__main__":
     ll.insert_at_end(20)
     ll.insert_at_end(324)
     ll.insert_values(["Papaya","Mango","orange","Peech"])
+    print(f"Length of the linked list is : {ll.get_length()}")
     ll.print()
