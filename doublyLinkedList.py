@@ -121,6 +121,34 @@ class DoublyLinkedList:
 
         print(llstr)
 
+    #to get the last node
+    def get_last_node(self):
+        itr = self.head
+
+        while itr.next:
+            itr = itr.next
+
+        return itr
+
+    def print_backward(self):
+
+        if self.head is None:
+            print("Linked list is empty")
+
+            
+        last_node = self.get_last_node()
+
+        itr = last_node
+        llstr = ''
+
+        while itr:
+            llstr += str(itr.data) + "\n"
+            itr = itr.prev
+
+        print(llstr)
+
+    
+
 if __name__ == "__main__":
     ll = DoublyLinkedList()
     ll.insert_at_beginning(32)
@@ -135,4 +163,5 @@ if __name__ == "__main__":
     ll.insert_after_value("Mango","banana")
     # ll.remove_by_value("orange")
     ll.print_forward()
+    ll.print_backward()
     ll.print()
