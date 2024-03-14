@@ -75,7 +75,27 @@ class DoublyLinkedList:
             itr = itr.next
 
         return count
-            
+
+    def insert_after_value(self, data_after, data_to_insert):
+        new_node = Node(data_to_insert)
+        if self.head is None:
+            self.head = new_node
+            return
+        
+        itr = self.head
+        while itr:
+            if itr.data == data_after:
+                next_node = itr.next
+                itr.next = new_node
+                new_node.prev = itr
+                new_node.next = next_node
+
+                if next_node:
+                    next_node.prev = new_node
+                
+
+            itr = itr.next
+
 
 
 if __name__ == "__main__":
@@ -89,4 +109,5 @@ if __name__ == "__main__":
     ll.insert_at_end(324)
     ll.insert_values(["Papaya","Mango","orange","Peech"])
     print(f"Length of the linked list is : {ll.get_length()}")
+    ll.insert_after_value("Mango","banana")
     ll.print()
