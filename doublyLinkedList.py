@@ -48,15 +48,18 @@ class DoublyLinkedList:
         print(llstr)
 
     def insert_at_end(self,data):
+        new_node = Node(data)
         if self.head is None:
-            return
-        
-        itr = self.head
+            print("Empty linked list")
 
-        while itr.next:
-            itr = itr.next
+        last_node = self.head
 
-        itr.next = Node(data, None)
+        while last_node.next:
+            last_node = last_node.next
+
+        last_node.next = new_node
+        new_node.prev = last_node
+
 
 if __name__ == "__main__":
     ll = DoublyLinkedList()
@@ -65,4 +68,5 @@ if __name__ == "__main__":
     ll.insert_at_beginning(290)
 
     ll.insert_at_end(413)
+    ll.insert_at_end(20)
     ll.print()
