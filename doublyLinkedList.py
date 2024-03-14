@@ -60,6 +60,11 @@ class DoublyLinkedList:
         last_node.next = new_node
         new_node.prev = last_node
 
+    def insert_values(self, data_list):
+        self.head = None
+        for data in data_list:
+            self.insert_at_end(data)
+
 
 if __name__ == "__main__":
     ll = DoublyLinkedList()
@@ -69,4 +74,6 @@ if __name__ == "__main__":
 
     ll.insert_at_end(413)
     ll.insert_at_end(20)
+    ll.insert_at_end(324)
+    ll.insert_values(["Papaya","Mango","orange","Peech"])
     ll.print()

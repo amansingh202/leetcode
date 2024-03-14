@@ -28,8 +28,9 @@ class LinkedList:
         print(llstr)
 
     def insert_at_end(self,data):
+        new_node = Node(data)
         if self.head is None:
-            self.head = Node(data, None)
+            self.head = new_node
             return
         
         itr = self.head
