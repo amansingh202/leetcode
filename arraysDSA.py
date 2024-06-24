@@ -12,3 +12,8 @@ for i in range(len(stock_prices)):
 #all values
 for price in stock_prices:
     print(price)
+
+
+stock_prices.insert(2,400)
+
+print(stock_prices)
