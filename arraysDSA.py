@@ -16,4 +16,9 @@ for price in stock_prices:
 
 stock_prices.insert(2,400)
 
-print(stock_prices)
+#print(stock_prices)
+
+#delete element
+new_arr = [2,45,67,89,87]
+new_arr.remove(3)
+print(new_arr)
