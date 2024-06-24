@@ -8,3 +8,7 @@ print(result)
 for i in range(len(stock_prices)):
     if stock_prices[i] == 301:
         print(i)
+
+#all values
+for price in stock_prices:
+    print(price)
