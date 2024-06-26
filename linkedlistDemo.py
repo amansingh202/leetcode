@@ -100,6 +100,17 @@ class LinkedList:
                 return
             itr = itr.next
 
+    def remove_by_value(self, data):
+        if self.head == None:
+            return
+        itr = self.head
+
+        while itr.next:
+            if itr.next.data ==  data:
+                itr.next = itr.next.next
+            itr = itr.next
+
+
 
     
 
@@ -119,4 +130,6 @@ if __name__ == "__main__":
     ll.insert_At(0, "Jackfruit")
     ll.print()
     ll.insert_after_value('grapes', 'mango')
+    ll.print()
+    ll.remove_by_value('grapes')
     ll.print()
