@@ -87,6 +87,20 @@ class LinkedList:
             itr = itr.next
             count += 1
 
+
+    def insert_after_value(self, data_after, data_to_insert):
+        if self.head == None:
+            return
+        
+        itr = self.head
+
+        while itr:
+            if itr.data == data_after:
+                itr.next = Node(data_to_insert, itr.next)
+                return
+            itr = itr.next
+
+
     
 
 if __name__ == "__main__":
@@ -103,4 +117,6 @@ if __name__ == "__main__":
     ll.print()
     ll.insert_At(2, 'figs')
     ll.insert_At(0, "Jackfruit")
+    ll.print()
+    ll.insert_after_value('grapes', 'mango')
     ll.print()
