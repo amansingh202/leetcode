@@ -102,4 +102,5 @@ if __name__ == "__main__":
     ll.remove_at(1)
     ll.print()
     ll.insert_At(2, 'figs')
+    ll.insert_At(0, "Jackfruit")
     ll.print()
