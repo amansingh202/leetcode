@@ -27,6 +27,10 @@ class HashTable:
         h = self.get_hash(key)
         return self.arr[h]
     
+    def __delitem__(self, key):
+        h = self.get_hash(key)
+        self.arr[h] = None
+    
 
 t = HashTable()
 t.add('march 6', 130)
@@ -34,3 +38,5 @@ print(t.get_hash('march 9'))
 print(t.get('march 6'))
 t['march 6'] = 141
 print(t['march 6'])
+del t['march 9']
+print(t.arr)
