@@ -1,7 +1,7 @@
 class HashTable:
     def __init__(self):
         self.MAX = 10
-        self.data = [None for _ in range(self.MAX)]
+        self.data = [None for i in range(self.MAX)]
 
     def gethash(self, key):
         hash_val = 0
@@ -61,10 +61,12 @@ print([*range(5, 8)] + [*range(0, 5)])
 
 # Usage example
 t = HashTable()
-t['March 6'] = 231
+t['March 16'] = 231
 t['March 10'] = 300
 t['March 12'] = 324
 t['March 13'] = 366
 t['March 17'] = 405
 t['March 22'] = 467
 t['March 29'] = 789
+
+del t['March 10']
