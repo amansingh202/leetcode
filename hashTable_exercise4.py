@@ -70,3 +70,5 @@ t['March 22'] = 467
 t['March 29'] = 789
 
 del t['March 10']
+print(t['March 10'])  #none means element has been deleted
+print(t['March 16'])
