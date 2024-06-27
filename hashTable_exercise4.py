@@ -1,69 +1,70 @@
 class HashTable:
     def __init__(self):
         self.MAX = 10
-        self.data = [None for i in range(self.MAX)]
+        self.data = [None for _ in range(self.MAX)]
 
     def gethash(self, key):
-        hash = 0
+        hash_val = 0
         for char in key:
-            hash += ord(char)
-
-        return hash % self.MAX
+            hash_val += ord(char)
+        return hash_val % self.MAX
     
     def get_probe_range(self, index):
-        return [*range(index, len(self.arr))] + [* range(0, index)]
+        return [*range(index, len(self.data))] + [*range(0, index)]
     
     def __getitem__(self, key):
         h = self.gethash(key)
-
-        if self.arr[h] is None:
-            return
-        
         prob_range = self.get_probe_range(h)
-
+        
         for prob_index in prob_range:
-            element = self.arr[prob_index]
-
+            element = self.data[prob_index]
             if element is None:
-                return
-            
+                return None
             if element[0] == key:
                 return element[1]
+        return None
             
     def __setitem__(self, key, val):
         h = self.gethash(key)
-        if self.arr[h] is None:
-            self.arr[h] = (key,val)
+        
+        if self.data[h] is None:
+            self.data[h] = (key, val)
         else:
             new_h = self.find_slot(key, h)
-            self.arr[new_h] = (key,val)
-        print(self.arr)  
-
-
+            self.data[new_h] = (key, val)
+        print(self.data)  # Print for debugging
+    
     def find_slot(self, key, index):
-        prob_range = self.get_probe_range(index) 
-
+        prob_range = self.get_probe_range(index)
+        
         for prob_index in prob_range:
-            if self.arr[prob_index] is None:
+            if self.data[prob_index] is None:
                 return prob_index
-
-            if self.arr[prob_index][0] == key:
+            if self.data[prob_index][0] == key:
                 return prob_index
-
-        raise Exception("Hashmap full")    
-
+        raise Exception("Hashmap full")
+    
     def __delitem__(self, key):
         h = self.gethash(key)
-        prob_range = self.get_probe_range(key)
-
-        for prob in prob_range:
-            if self.arr[prob] is None:
+        prob_range = self.get_probe_range(h)
+        
+        for prob_index in prob_range:
+            if self.data[prob_index] is None:
                 return
-            
-            if self.arr[prob][0] == key:
-                self.arr[prob] = None
+            if self.data[prob_index][0] == key:
+                self.data[prob_index] = None
+                return  # Added return to stop further iterations if deletion successful
+        print(self.data)  # Print for debugging
 
-        print(self.arr)
+# Probing test
+print([*range(5, 8)] + [*range(0, 5)])
 
-#probing test
-print([*range(5,8)]+[*range(0,5)])
+# Usage example
+t = HashTable()
+t['March 6'] = 231
+t['March 10'] = 300
+t['March 12'] = 324
+t['March 13'] = 366
+t['March 17'] = 405
+t['March 22'] = 467
+t['March 29'] = 789
