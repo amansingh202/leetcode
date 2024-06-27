@@ -65,3 +65,5 @@ class HashTable:
 
         print(self.arr)
 
+#probing test
+print([*range(5,8)]+[*range(0,5)])
